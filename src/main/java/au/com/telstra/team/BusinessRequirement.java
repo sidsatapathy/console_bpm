@@ -5,22 +5,23 @@ package au.com.telstra.team;
  */
 
 @javax.persistence.Entity
+@javax.persistence.Table(name = "BusinessRequirement")
 public class BusinessRequirement implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@javax.persistence.GeneratedValue(generator = "BUSINESSJUSTIFICATION_ID_GENERATOR", strategy = javax.persistence.GenerationType.AUTO)
+	@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "BUSINESSREQUIREMENT_ID_GENERATOR")
 	@javax.persistence.Id
-	@javax.persistence.SequenceGenerator(name = "BUSINESSJUSTIFICATION_ID_GENERATOR", sequenceName = "BUSINESSJUSTIFICATION_ID_SEQ")
+	@javax.persistence.SequenceGenerator(name = "BUSINESSREQUIREMENT_ID_GENERATOR", sequenceName = "BUSINESSREQUIREMENT_ID_SEQ")
 	private java.lang.Long id;
 
 	@org.kie.api.definition.type.Label("BusinessJustification")
 	private java.lang.String businessJustification;
 
+	@javax.persistence.Column(name = "documents")
 	@javax.persistence.ElementCollection(fetch = javax.persistence.FetchType.EAGER)
-	@org.kie.api.definition.type.Label("DocumentList")
-	@javax.persistence.OneToMany(cascade = {javax.persistence.CascadeType.PERSIST}, mappedBy = "documentList", fetch = javax.persistence.FetchType.EAGER, orphanRemoval = false)
-	private java.util.List<java.lang.String> documentList;
+	@org.kie.api.definition.type.Label("Documents")
+	private java.util.List<java.lang.String> documents;
 
 	public BusinessRequirement() {
 	}
@@ -41,20 +42,20 @@ public class BusinessRequirement implements java.io.Serializable {
 		this.businessJustification = businessJustification;
 	}
 
-	public java.util.List<java.lang.String> getDocumentList() {
-		return this.documentList;
+	public java.util.List<java.lang.String> getDocuments() {
+		return this.documents;
 	}
 
-	public void setDocumentList(java.util.List<java.lang.String> documentList) {
-		this.documentList = documentList;
+	public void setDocuments(java.util.List<java.lang.String> documents) {
+		this.documents = documents;
 	}
 
 	public BusinessRequirement(java.lang.Long id,
 			java.lang.String businessJustification,
-			java.util.List<java.lang.String> documentList) {
+			java.util.List<java.lang.String> documents) {
 		this.id = id;
 		this.businessJustification = businessJustification;
-		this.documentList = documentList;
+		this.documents = documents;
 	}
 
 }
