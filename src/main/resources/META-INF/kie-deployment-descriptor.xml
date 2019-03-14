@@ -8,7 +8,7 @@
     <marshalling-strategies>
         <marshalling-strategy>
             <resolver>mvel</resolver>
-            <identifier>new org.drools.persistence.jpa.marshaller.JPAPlaceholderResolverStrategy("au.com.telstra.team:Telstra_Console:1.0.26", classLoader)</identifier>
+            <identifier>new org.drools.persistence.jpa.marshaller.JPAPlaceholderResolverStrategy("au.com.telstra.team:Telstra_Console:1.0.0", classLoader)</identifier>
             <parameters/>
         </marshalling-strategy>
     </marshalling-strategies>
