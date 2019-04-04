@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
-    <persistence-unit name="au.com.telstra.team:Telstra_Console:1.0.0" transaction-type="JTA">
+    <persistence-unit name="au.com.telstra.team:Telstra_Console:1.0.26" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:jboss/datasources/TelstraConsoleDS</jta-data-source>
         <class>au.com.telstra.team.Project</class>
         <class>au.com.telstra.team.Site</class>
         <class>au.com.telstra.team.FinancialDetail</class>
+        <class>au.com.telstra.team.Location</class>
+        <class>au.com.telstra.team.BusinessRequirement</class>
         <class>au.com.telstra.team.Estimate</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.max_fetch_depth" value="3"/>
             <property name="hibernate.id.new_generator_mappings" value="false"/>
             <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto&#9;" value="update"/>
+            <property name="hibernate.hbm2ddl.auto&#9;" value="create-drop"/>
         </properties>
     </persistence-unit>
 </persistence>

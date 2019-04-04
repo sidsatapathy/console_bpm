@@ -10,32 +10,32 @@ public class FinancialDetail implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "FINANCIALDETAIL_ID_GENERATOR")
+	@javax.persistence.GeneratedValue(generator = "FINANCIALDETAIL_ID_GENERATOR", strategy = javax.persistence.GenerationType.AUTO)
 	@javax.persistence.Id
 	@javax.persistence.SequenceGenerator(name = "FINANCIALDETAIL_ID_GENERATOR", sequenceName = "FINANCIALDETAIL_ID_SEQ")
 	private java.lang.Long id;
 
+	@org.kie.api.definition.type.Label("EstimateTableComment")
+	private java.lang.String estimateTableComment;
+
 	@org.kie.api.definition.type.Label("FundingCategory")
-	private java.lang.String fundingcategory;
+	private java.lang.String fundingCategory;
 
 	@org.kie.api.definition.type.Label("FundingType")
-	private java.lang.String fundingtype;
+	private java.lang.String fundingType;
 
 	@org.kie.api.definition.type.Label("FundingRequiredByDate")
-	private java.lang.String fundingrequiredbydate;
+	private java.lang.String fundingRequiredByDate;
 
-	@org.kie.api.definition.type.Label("Comments")
-	private java.lang.String comments;
+	@org.kie.api.definition.type.Label("FundingComments")
+	private java.lang.String fundingComments;
 
-	@javax.persistence.Column(name = "estimates")
-	@org.kie.api.definition.type.Label("Estimates")
-	@javax.persistence.OneToMany(fetch = javax.persistence.FetchType.EAGER, cascade = {
+	@javax.persistence.Column(name = "estimate")
+	@javax.persistence.OneToMany(orphanRemoval = false, cascade = {
 			javax.persistence.CascadeType.ALL,
-			javax.persistence.CascadeType.PERSIST}, orphanRemoval = false)
-	private java.util.List<au.com.telstra.team.Estimate> estimates;
-
-	@org.kie.api.definition.type.Label(value = "EstimateTableComment")
-	private java.lang.String estimateTableComment;
+			javax.persistence.CascadeType.PERSIST}, fetch = javax.persistence.FetchType.EAGER)
+	@org.kie.api.definition.type.Label("Estimate")
+	private java.util.List<au.com.telstra.team.Estimate> estimate;
 
 	public FinancialDetail() {
 	}
@@ -48,47 +48,6 @@ public class FinancialDetail implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public java.lang.String getFundingcategory() {
-		return this.fundingcategory;
-	}
-
-	public void setFundingcategory(java.lang.String fundingcategory) {
-		this.fundingcategory = fundingcategory;
-	}
-
-	public java.lang.String getFundingtype() {
-		return this.fundingtype;
-	}
-
-	public void setFundingtype(java.lang.String fundingtype) {
-		this.fundingtype = fundingtype;
-	}
-
-	public java.lang.String getFundingrequiredbydate() {
-		return this.fundingrequiredbydate;
-	}
-
-	public void setFundingrequiredbydate(java.lang.String fundingrequiredbydate) {
-		this.fundingrequiredbydate = fundingrequiredbydate;
-	}
-
-	public java.lang.String getComments() {
-		return this.comments;
-	}
-
-	public void setComments(java.lang.String comments) {
-		this.comments = comments;
-	}
-
-	public java.util.List<au.com.telstra.team.Estimate> getEstimates() {
-		return this.estimates;
-	}
-
-	public void setEstimates(
-			java.util.List<au.com.telstra.team.Estimate> estimates) {
-		this.estimates = estimates;
-	}
-
 	public java.lang.String getEstimateTableComment() {
 		return this.estimateTableComment;
 	}
@@ -97,18 +56,60 @@ public class FinancialDetail implements java.io.Serializable {
 		this.estimateTableComment = estimateTableComment;
 	}
 
-	public FinancialDetail(java.lang.Long id, java.lang.String fundingcategory,
-			java.lang.String fundingtype,
-			java.lang.String fundingrequiredbydate, java.lang.String comments,
-			java.util.List<au.com.telstra.team.Estimate> estimates,
-			java.lang.String estimateTableComment) {
+	public java.lang.String getFundingCategory() {
+		return this.fundingCategory;
+	}
+
+	public void setFundingCategory(java.lang.String fundingCategory) {
+		this.fundingCategory = fundingCategory;
+	}
+
+	public java.lang.String getFundingType() {
+		return this.fundingType;
+	}
+
+	public void setFundingType(java.lang.String fundingType) {
+		this.fundingType = fundingType;
+	}
+
+	public java.lang.String getFundingRequiredByDate() {
+		return this.fundingRequiredByDate;
+	}
+
+	public void setFundingRequiredByDate(java.lang.String fundingRequiredByDate) {
+		this.fundingRequiredByDate = fundingRequiredByDate;
+	}
+
+	public java.lang.String getFundingComments() {
+		return this.fundingComments;
+	}
+
+	public void setFundingComments(java.lang.String fundingComments) {
+		this.fundingComments = fundingComments;
+	}
+
+	public java.util.List<au.com.telstra.team.Estimate> getEstimate() {
+		return this.estimate;
+	}
+
+	public void setEstimate(
+			java.util.List<au.com.telstra.team.Estimate> estimate) {
+		this.estimate = estimate;
+	}
+
+	public FinancialDetail(java.lang.Long id,
+			java.lang.String estimateTableComment,
+			java.lang.String fundingCategory, java.lang.String fundingType,
+			java.lang.String fundingRequiredByDate,
+			java.lang.String fundingComments,
+			java.util.List<au.com.telstra.team.Estimate> estimate) {
 		this.id = id;
-		this.fundingcategory = fundingcategory;
-		this.fundingtype = fundingtype;
-		this.fundingrequiredbydate = fundingrequiredbydate;
-		this.comments = comments;
-		this.estimates = estimates;
 		this.estimateTableComment = estimateTableComment;
+		this.fundingCategory = fundingCategory;
+		this.fundingType = fundingType;
+		this.fundingRequiredByDate = fundingRequiredByDate;
+		this.fundingComments = fundingComments;
+		this.estimate = estimate;
 	}
 
 }

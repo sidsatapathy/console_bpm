@@ -14,36 +14,24 @@ public class Site implements java.io.Serializable {
 	@javax.persistence.SequenceGenerator(name = "SITE_ID_GENERATOR", sequenceName = "SITE_ID_SEQ")
 	private java.lang.Long id;
 
-	@org.kie.api.definition.type.Label("Name")
-	private java.lang.String name;
-
-	@org.kie.api.definition.type.Label("Latitude")
-	private java.lang.String latitude;
-
-	@org.kie.api.definition.type.Label("Longitude")
-	private java.lang.String longitude;
-
 	@org.kie.api.definition.type.Label("AreaType")
 	private java.lang.String areaType;
-
-	@org.kie.api.definition.type.Label("Office")
-	private java.lang.String office;
 
 	@org.kie.api.definition.type.Label("Technology")
 	@javax.persistence.ElementCollection(fetch = javax.persistence.FetchType.EAGER)
 	private java.util.List<java.lang.String> technology;
 
-	@org.kie.api.definition.type.Label("State")
-	private String state;
-
-	@org.kie.api.definition.type.Label(value = "SiteType")
+	@org.kie.api.definition.type.Label("SiteType")
 	private java.lang.String siteType;
 
-	@org.kie.api.definition.type.Label(value = "SectorCount")
+	@org.kie.api.definition.type.Label("SectorCount")
 	private java.lang.String sectorCount;
 
-	@org.kie.api.definition.type.Label(value = "SiteComments")
+	@org.kie.api.definition.type.Label("SiteComments")
 	private java.lang.String siteComments;
+
+	@org.kie.api.definition.type.Label(value = "SiteName")
+	private java.lang.String siteName;
 
 	public Site() {
 	}
@@ -56,30 +44,6 @@ public class Site implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public java.lang.String getName() {
-		return this.name;
-	}
-
-	public void setName(java.lang.String name) {
-		this.name = name;
-	}
-
-	public java.lang.String getLatitude() {
-		return this.latitude;
-	}
-
-	public void setLatitude(java.lang.String latitude) {
-		this.latitude = latitude;
-	}
-
-	public java.lang.String getLongitude() {
-		return this.longitude;
-	}
-
-	public void setLongitude(java.lang.String longitude) {
-		this.longitude = longitude;
-	}
-
 	public java.lang.String getAreaType() {
 		return this.areaType;
 	}
@@ -88,28 +52,12 @@ public class Site implements java.io.Serializable {
 		this.areaType = areaType;
 	}
 
-	public java.lang.String getOffice() {
-		return this.office;
-	}
-
-	public void setOffice(java.lang.String office) {
-		this.office = office;
-	}
-
 	public java.util.List<java.lang.String> getTechnology() {
 		return this.technology;
 	}
 
 	public void setTechnology(java.util.List<java.lang.String> technology) {
 		this.technology = technology;
-	}
-
-	public java.lang.String getState() {
-		return this.state;
-	}
-
-	public void setState(java.lang.String state) {
-		this.state = state;
 	}
 
 	public java.lang.String getSiteType() {
@@ -136,23 +84,25 @@ public class Site implements java.io.Serializable {
 		this.siteComments = siteComments;
 	}
 
-	public Site(java.lang.Long id, java.lang.String name,
-			java.lang.String latitude, java.lang.String longitude,
-			java.lang.String areaType, java.lang.String office,
+	public java.lang.String getSiteName() {
+		return this.siteName;
+	}
+
+	public void setSiteName(java.lang.String siteName) {
+		this.siteName = siteName;
+	}
+
+	public Site(java.lang.Long id, java.lang.String areaType,
 			java.util.List<java.lang.String> technology,
-			java.lang.String state, java.lang.String siteType,
-			java.lang.String sectorCount, java.lang.String siteComments) {
+			java.lang.String siteType, java.lang.String sectorCount,
+			java.lang.String siteComments, java.lang.String siteName) {
 		this.id = id;
-		this.name = name;
-		this.latitude = latitude;
-		this.longitude = longitude;
 		this.areaType = areaType;
-		this.office = office;
 		this.technology = technology;
-		this.state = state;
 		this.siteType = siteType;
 		this.sectorCount = sectorCount;
 		this.siteComments = siteComments;
+		this.siteName = siteName;
 	}
 
 }

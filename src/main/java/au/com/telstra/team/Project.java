@@ -14,9 +14,6 @@ public class Project implements java.io.Serializable {
 	@javax.persistence.SequenceGenerator(name = "PROJECT_ID_GENERATOR", sequenceName = "Project_id_seq")
 	private java.lang.Long id;
 
-	@org.kie.api.definition.type.Label("Name")
-	private java.lang.String name;
-
 	@org.kie.api.definition.type.Label("Number")
 	private java.lang.String number;
 
@@ -27,14 +24,18 @@ public class Project implements java.io.Serializable {
 	private java.lang.String subType;
 	@org.kie.api.definition.type.Label("Status")
 	private java.lang.String status;
-	@org.kie.api.definition.type.Label(value = "BusinessJustification")
-	private java.lang.String businessJustification;
-
-	@org.kie.api.definition.type.Label(value = "ExpectedStartDate")
+	@org.kie.api.definition.type.Label("ExpectedStartDate")
 	private java.lang.String expectedStartDate;
 
-	@org.kie.api.definition.type.Label(value = "NodeCode")
+	@org.kie.api.definition.type.Label("NodeCode")
 	private java.lang.String nodeCode;
+	@org.kie.api.definition.type.Label("State")
+	private java.lang.String state;
+
+	@org.kie.api.definition.type.Label("Office")
+	private java.lang.String office;
+	@org.kie.api.definition.type.Label(value = "projectName")
+	private java.lang.String projectName;
 	public Project() {
 	}
 
@@ -44,14 +45,6 @@ public class Project implements java.io.Serializable {
 
 	public void setId(java.lang.Long id) {
 		this.id = id;
-	}
-
-	public java.lang.String getName() {
-		return this.name;
-	}
-
-	public void setName(java.lang.String name) {
-		this.name = name;
 	}
 
 	public java.lang.String getNumber() {
@@ -85,14 +78,6 @@ public class Project implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public java.lang.String getBusinessJustification() {
-		return this.businessJustification;
-	}
-
-	public void setBusinessJustification(java.lang.String businessJustification) {
-		this.businessJustification = businessJustification;
-	}
-
 	public java.lang.String getExpectedStartDate() {
 		return this.expectedStartDate;
 	}
@@ -109,20 +94,45 @@ public class Project implements java.io.Serializable {
 		this.nodeCode = nodeCode;
 	}
 
-	public Project(java.lang.Long id, java.lang.String name,
-			java.lang.String number, java.lang.String type,
-			java.lang.String subType, java.lang.String status,
-			java.lang.String businessJustification,
-			java.lang.String expectedStartDate, java.lang.String nodeCode) {
+	public java.lang.String getState() {
+		return this.state;
+	}
+
+	public void setState(java.lang.String state) {
+		this.state = state;
+	}
+
+	public java.lang.String getOffice() {
+		return this.office;
+	}
+
+	public void setOffice(java.lang.String office) {
+		this.office = office;
+	}
+
+	public java.lang.String getProjectName() {
+		return this.projectName;
+	}
+
+	public void setProjectName(java.lang.String projectName) {
+		this.projectName = projectName;
+	}
+
+	public Project(java.lang.Long id, java.lang.String number,
+			java.lang.String type, java.lang.String subType,
+			java.lang.String status, java.lang.String expectedStartDate,
+			java.lang.String nodeCode, java.lang.String state,
+			java.lang.String office, java.lang.String projectName) {
 		this.id = id;
-		this.name = name;
 		this.number = number;
 		this.type = type;
 		this.subType = subType;
 		this.status = status;
-		this.businessJustification = businessJustification;
 		this.expectedStartDate = expectedStartDate;
 		this.nodeCode = nodeCode;
+		this.state = state;
+		this.office = office;
+		this.projectName = projectName;
 	}
 
 }
