@@ -6,7 +6,7 @@
   <artifactId>Telstra_Console</artifactId>
   <version>1.0.26</version>
   <packaging>kjar</packaging>
-  <name>Telstra_Console-3</name>
+  <name>Telstra_Console</name>
   <description></description>
   <dependencies>
     <dependency>
